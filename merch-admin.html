@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>H&C Merchandise Admin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Rajdhani:wght@500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="H&C.css" />
+  </head>
+  <body data-page="admin">
+    <a class="skip" href="#main">Skip to content</a>
+
+    <header class="bar">
+      <div class="wrap row between center">
+        <div class="brand stack center gap">
+          <img
+            class="logo"
+            src="54ca56f7-3062-4d66-80d9-058bb24cad6a.jpg"
+            alt="H&C Electrical Services logo"
+          />
+          <div class="txt">H&C Merchandise Admin</div>
+          <div class="muted small">Update stock &amp; order routing</div>
+        </div>
+        <nav id="site-nav" class="nav row gap" role="navigation">
+          <a href="H&C.html">Return to site</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="wrap pad block reveal admin-wrapper">
+        <h1 class="h1">Merchandise Admin Portal</h1>
+        <p class="muted small">
+          Use these tools to refresh product images, adjust inventory, and confirm how new merchandise orders reach the
+          logistics team.
+        </p>
+
+        <details class="admin-section" open>
+          <summary>
+            <div class="summary-text">
+              <span class="summary-title">Catalog Manager</span>
+              <span class="summary-desc muted small">Update product listings, imagery, and descriptions.</span>
+            </div>
+            <span aria-hidden="true" class="summary-caret"></span>
+          </summary>
+          <div class="admin-section-body">
+            <form id="catalog-form" class="card form admin-form" aria-labelledby="product-form-title">
+              <div class="title" id="product-form-title">Add or update merchandise</div>
+              <label>Product name
+                <input type="text" name="product-name" placeholder="Pro Work Shirt" required />
+              </label>
+              <label>Price (USD)
+                <input type="number" name="price" min="0" step=".01" placeholder="28.00" required />
+              </label>
+              <label>Available stock
+                <input type="number" name="stock" min="0" placeholder="48" required />
+              </label>
+              <label>Image URL
+                <input type="url" name="image-url" placeholder="https://cdn.hc-electric.com/merch/shirt.jpg" />
+              </label>
+              <label>Description
+                <textarea name="description" rows="4" placeholder="Key features, materials, sizing notes"></textarea>
+              </label>
+              <label>Fulfillment notes
+                <textarea name="fulfillment" rows="3" placeholder="Lead times, packaging, or vendor references"></textarea>
+              </label>
+              <button class="btn" type="submit">Save merchandise item</button>
+              <div class="form-note muted small" aria-live="polite"></div>
+            </form>
+          </div>
+        </details>
+
+        <details class="admin-section" open>
+          <summary>
+            <div class="summary-text">
+              <span class="summary-title">Stock Adjustments</span>
+              <span class="summary-desc muted small">Record quick inventory updates after deliveries or pull-outs.</span>
+            </div>
+            <span aria-hidden="true" class="summary-caret"></span>
+          </summary>
+          <div class="admin-section-body">
+            <form id="stock-form" class="card form admin-form" aria-labelledby="stock-form-title">
+              <div class="title" id="stock-form-title">Adjust stock levels</div>
+              <label>Product
+                <select name="adjust-product" required>
+                  <option value="Pro Work Shirt">Pro Work Shirt</option>
+                  <option value="Insulated Travel Mug">Insulated Travel Mug</option>
+                  <option value="Hard Hat Decal Pack">Hard Hat Decal Pack</option>
+                </select>
+              </label>
+              <label>Adjustment (+/-)
+                <input type="number" name="adjust-qty" step="1" placeholder="+5" required />
+              </label>
+              <label>Adjustment passcode
+                <input type="password" name="adjust-pin" placeholder="Enter passcode" required />
+              </label>
+              <button class="btn" type="submit">Record adjustment</button>
+              <div class="form-note muted small" aria-live="polite"></div>
+            </form>
+            <div class="inventory-panel card">
+              <div class="title">Current inventory</div>
+              <p class="muted small">Live snapshot of tracked merchandise. Stock updates apply instantly.</p>
+              <table class="inventory-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Product</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Stock</th>
+                    <th scope="col" class="actions">Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="inventory-body">
+                  <tr>
+                    <td colspan="4" class="muted small">No inventory loaded.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </details>
+
+        <details class="admin-section">
+          <summary>
+            <div class="summary-text">
+              <span class="summary-title">Order Routing &amp; Notifications</span>
+              <span class="summary-desc muted small">Control where orders are sent and how the team is alerted.</span>
+            </div>
+            <span aria-hidden="true" class="summary-caret"></span>
+          </summary>
+          <div class="admin-section-body">
+            <form id="routing-form" class="card form admin-form" aria-labelledby="order-routing-title">
+              <div class="title" id="order-routing-title">Update routing details</div>
+              <label>Orders email
+                <input type="email" name="orders-email" placeholder="orders@hncelectrical.com" required />
+              </label>
+              <label>Orders phone
+                <input type="tel" name="orders-phone" placeholder="+1 (473) 536-8915" required />
+              </label>
+              <label>Pickup location
+                <input type="text" name="pickup-location" placeholder="Grand Anse workshop" />
+              </label>
+              <label>Delivery partner
+                <input type="text" name="delivery-partner" placeholder="Local courier / driver" />
+              </label>
+              <label>Automation webhook URL
+                <input type="url" name="webhook" placeholder="https://hooks.zapier.com/..." />
+              </label>
+              <label>Internal notes
+                <textarea name="order-notes" rows="3" placeholder="Escalation paths, after-hours handling, etc."></textarea>
+              </label>
+              <button class="btn" type="submit">Save routing updates</button>
+              <div class="form-note muted small" aria-live="polite"></div>
+            </form>
+          </div>
+        </details>
+
+        <details class="admin-section">
+          <summary>
+            <div class="summary-text">
+              <span class="summary-title">Google Sync Settings</span>
+              <span class="summary-desc muted small">Enter the Google account details used to sync merchandise data. (API integration not yet connected.)</span>
+            </div>
+            <span aria-hidden="true" class="summary-caret"></span>
+          </summary>
+          <div class="admin-section-body">
+            <form id="google-form" class="card form admin-form" aria-labelledby="google-form-title">
+              <div class="title" id="google-form-title">Google account configuration</div>
+              <label>Google account email
+                <input type="email" name="google-email" placeholder="admin@example.com" required />
+              </label>
+              <label>Shared drive or folder ID
+                <input type="text" name="google-folder" placeholder="Drive folder ID" />
+              </label>
+              <label>Google Sheet ID
+                <input type="text" name="google-sheet" placeholder="Spreadsheet ID" />
+              </label>
+              <label>API key or service credential note
+                <textarea name="google-credentials" rows="3" placeholder="Store credential reference or location (never paste secrets directly)"></textarea>
+              </label>
+              <button class="btn" type="submit">Save Google link</button>
+              <div class="form-note muted small" aria-live="polite"></div>
+            </form>
+            <div class="muted small">To connect fully, supply OAuth/service credential handling on the backend and sync inventory to Google Sheets or Drive via the Google APIs.</div>
+          </div>
+        </details>
+      </section>
+    </main>
+
+    <script src="H&C.Js"></script>
+  </body>
+</html>

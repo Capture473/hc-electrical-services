@@ -34,6 +34,7 @@
           <a href="#home">HOME</a>
           <a href="#about">ABOUT</a>
           <a href="#services">SERVICES</a>
+          <a href="#merch">MERCH</a>
           <a href="#contact">CONTACT</a>
         </nav>
         <a href="#contact" class="btn">Request Quote</a>
@@ -46,7 +47,7 @@
         <div class="stack gap">
           <p class="muted accent">High-voltage precision</p>
           <h1 class="h1">H&C Electrical Services</h1>
-          <p>Certified electricians delivering safe builds, upgrades, and maintenance across Grenada.</p>
+          <p>Electricians delivering safe builds, EV charger installs, and maintenance across Grenada.</p>
           <div class="row gap">
             <a href="#contact" class="btn">Book A Call</a>
             <a href="#services" class="btn ghost">View Services</a>
@@ -57,12 +58,13 @@
               <option selected>Commercial fit-out</option>
               <option>Residential upgrade</option>
               <option>Industrial maintenance</option>
+              <option>EV charger installation</option>
             </select>
             <button class="btn" type="submit">Join project brief</button>
           </form>
         </div>
         <div class="center reveal">
-          <div class="box xl center">Licensed • Insured • On Time</div>
+          <div class="box xl center">Insured • On Time</div>
         </div>
       </section>
 
@@ -87,6 +89,10 @@
               <div class="title">Ideal Partners</div>
               <p class="muted small">Builders • Property managers • Facility directors</p>
             </div>
+            <div class="card">
+              <div class="title">EV Expertise</div>
+              <p class="muted small">Certified to install EV chargers for homes, commercial fleets, and public sites.</p>
+            </div>
           </div>
           <div class="center">
             <div class="box lg center">Safety-first power systems</div>
@@ -109,6 +115,10 @@
           <div class="card">
             <div class="title">Emergency Response</div>
             <p class="muted small">24/7 fault tracing • Storm recovery • Preventive maintenance</p>
+          </div>
+          <div class="card">
+            <div class="title">EV Charger Installations</div>
+            <p class="muted small">Residential Level 2 chargers • Fleet van charging • Load balancing & permitting</p>
           </div>
         </div>
       </section>
@@ -151,6 +161,73 @@
         </ol>
       </section>
 
+      <!-- MERCHANDISE -->
+      <section id="merch" class="wrap pad block alt reveal">
+        <h2 class="h2">Order H&amp;C Merchandise</h2>
+        <p class="muted small">Outfit your crew with branded gear shipped directly from our workshop.</p>
+        <div class="grid3 gap merch-grid" data-merch-grid></div>
+        <noscript>
+          <div class="grid3 gap merch-grid">
+            <article class="card merch-card">
+              <div class="merch-photo merch-photo--shirt" aria-hidden="true"></div>
+              <div class="stack gap">
+                <div class="title">Pro Work Shirt</div>
+                <p class="muted small">Breathable, high-visibility crew tee built for long site days.</p>
+                <div class="price">$28.00</div>
+                <div class="muted small">Sizes: S–XXL</div>
+              </div>
+            </article>
+            <article class="card merch-card">
+              <div class="merch-photo merch-photo--mug" aria-hidden="true"></div>
+              <div class="stack gap">
+                <div class="title">Insulated Travel Mug</div>
+                <p class="muted small">Keeps coffee hot through site briefings and night callouts.</p>
+                <div class="price">$18.00</div>
+                <div class="muted small">20 oz • Spill-resistant lid</div>
+              </div>
+            </article>
+            <article class="card merch-card">
+              <div class="merch-photo merch-photo--decal" aria-hidden="true"></div>
+              <div class="stack gap">
+                <div class="title">Hard Hat Decal Pack</div>
+                <p class="muted small">UV-resistant vinyl decals for helmets, vans, and toolboxes.</p>
+                <div class="price">$12.00</div>
+                <div class="muted small">Pack of 6</div>
+              </div>
+            </article>
+          </div>
+        </noscript>
+        <div class="merch-order-wrapper" data-merch-order>
+          <form id="merch-order" class="form grid2 gap merch-order" aria-labelledby="merch-order-title" hidden>
+            <div class="title span2" id="merch-order-title">Place a merchandise order</div>
+            <label>Item
+              <select name="product" required>
+                <option value="Pro Work Shirt">Pro Work Shirt</option>
+                <option value="Insulated Travel Mug">Insulated Travel Mug</option>
+                <option value="Hard Hat Decal Pack">Hard Hat Decal Pack</option>
+              </select>
+            </label>
+            <label>Quantity
+              <input name="quantity" type="number" min="1" value="1" required />
+            </label>
+            <label>Contact Email
+              <input name="order-email" type="email" placeholder="you@example.com" required />
+            </label>
+            <label>Phone
+              <input name="order-phone" type="tel" placeholder="+1 (473) 536-8915" required />
+            </label>
+            <label class="span2">Delivery Notes
+              <textarea name="order-notes" rows="4" placeholder="Tell us about sizes, delivery windows, or pickup preferences"></textarea>
+            </label>
+            <button class="btn span2" type="submit">Submit merchandise request</button>
+            <div class="muted small span2">Orders are reviewed by H&amp;C logistics. Expect a confirmation call within one business day.</div>
+          </form>
+          <div class="merch-order-hint muted small" data-merch-hint>Choose an item above to open the order form.</div>
+        </div>
+        <div class="muted small merch-admin-note">Team member? Update inventory via the <a class="admin-link" data-requires-pin="true" href="merch-admin.html">merchandise admin portal</a>.</div>
+
+      </section>
+
       <!-- BOOKING -->
       <section id="book" class="wrap pad block alt reveal">
         <h2 class="h2">Request a Consultation</h2>
@@ -161,6 +238,7 @@
             <select name="service" required>
               <option selected>DOMESTIC</option>
               <option>COMMERCIAL</option>
+              <option>EV CHARGER INSTALLATION</option>
             </select>
           </label>
           <label>Reference Links (optional)<input name="refs" type="url" placeholder="Reference link" /></label>
@@ -179,8 +257,7 @@
           <div class="stack gap">
             <div class="card">
               <div class="title">Call our team</div>
-              <p class="muted small"><a href="tel:+14734378615">+1 (473) 437-8615</a> • Operations</p>
-              <p class="muted small"><a href="tel:+14734571435">+1 (473) 457-1435</a> • Emergency</p>
+              <p class="muted small"><a href="tel:+14735368915">+1 (473) 536-8915</a> • 24/7 support line</p>
             </div>
             <div class="card">
               <div class="title">Payment options</div>
@@ -200,7 +277,10 @@
 
     <footer class="bar foot">
       <div class="wrap row between center">
-        <div>H&C Electrical Services • © 2025 • All rights reserved</div>
+        <div>
+          H&C Electrical Services • © 2025 • All rights reserved
+          <div class="muted small footer-admin">Team member? Update inventory via the <a class="admin-link" data-requires-pin="true" href="merch-admin.html">merchandise admin portal</a>.</div>
+        </div>
         <div class="row gap">
           <span>Privacy</span>
           <span>Terms</span>
@@ -212,7 +292,7 @@
     <!-- STICKY PROMO BAR -->
     <div id="sticky" class="sticky row gap center">
       <div>24/7 emergency electrical support — call us now.</div>
-      <a href="tel:+14734571435" class="btn small">Call H&C</a>
+      <a href="tel:+14735368915" class="btn small">Call H&C</a>
     </div>
 
     <!-- LEAD CAPTURE MODAL -->
